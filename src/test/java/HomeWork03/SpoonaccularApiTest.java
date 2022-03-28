@@ -11,7 +11,7 @@ public class SpoonaccularApiTest {
     private static final String BASE_URL = "https://api.spoonacular.com";
     private static final String RECIPE_ID = "68546";
     private static final String USER_NAME = "RomanMinaev3";
-    private static final String START_DATE = "2022-04-01";
+    private static final String START_DATE = "2022-04-03";
     private static final String USER_HASH = "30a48916222283f96c40243be61083adb89e56da";
 
 
