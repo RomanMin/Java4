@@ -1,7 +1,6 @@
 package HomeWork03;
 
 import io.restassured.RestAssured;
-import io.restassured.mapper.ObjectMapperType;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -11,6 +10,10 @@ public class SpoonaccularApiTest {
     private static final String API_KEY = "4f8be7f04b4d4b2882145a0d65f832ba";
     private static final String BASE_URL = "https://api.spoonacular.com";
     private static final String RECIPE_ID = "68546";
+    private static final String USER_NAME = "RomanMinaev3";
+    private static final String START_DATE = "2022-04-01";
+    private static final String USER_HASH = "30a48916222283f96c40243be61083adb89e56da";
+
 
 
     @BeforeAll
@@ -152,10 +155,10 @@ public class SpoonaccularApiTest {
     void testPost4() {
         RestAssured.given()
                 .queryParams("apiKey", API_KEY)
-                .queryParam("tiitle", "burger")
-                .body("{ingredientList:carrot, pasta, pork}")
+                .queryParam("tiitle", "Tacos")
+                .queryParam("ingredientList", "corn pancakes stuffed with meat, red, yellow and green chilis, with onion and tomato")
                 .log()
-                .uri()
+                .all()
                 .expect()
                 .log()
                 .body()
@@ -175,7 +178,69 @@ public class SpoonaccularApiTest {
             .body()
             .statusCode(200)
             .time(lessThan(1500L))
-            //  .body("results[9].id", Matchers.notNullValue())
             .when()
             .post("/recipes/cuisine");}
+/*
+    @Test
+    void testPostUser() {
+        RestAssured.given()
+                .queryParams("apiKey", API_KEY)
+                .body("{ \"username\":" + USER_NAME + ", }")
+                .log()
+                .uri()
+                .expect()
+                .log()
+                .body()
+                .statusCode(200)
+                .time(lessThan(1500L))
+                .when()
+                .post("/users/connect");
+    }
+*/
+    @Test
+    void testPostWeekPlan() {
+        RestAssured.given()
+                .queryParams("apiKey", API_KEY)
+                .queryParam("hash", USER_HASH)
+                .body("{\n" +
+                        "    \"date\": 1589500800,\n" +
+                        "    \"slot\": 1,\n" +
+                        "    \"position\": 0,\n" +
+                        "    \"type\": \"INGREDIENTS\",\n" +
+                        "    \"value\": {\n" +
+                        "        \"ingredients\": [\n" +
+                        "            {\n" +
+                        "                \"name\": \"1 banana\"\n" +
+                        "            }\n" +
+                        "        ]\n" +
+                        "    }\n" +
+                        "}")
+                .log()
+                .uri()
+                .expect()
+                .log()
+                .body()
+                .statusCode(200)
+                .time(lessThan(1500L))
+                .when()
+                .post("/mealplanner/"+ USER_NAME + "/items");
+
+    }
+    @Test
+    void testGetMealPlan(){
+
+        RestAssured.given()
+                .queryParams("apiKey", API_KEY)
+                .queryParam("hash", USER_HASH)
+                .log()
+                .uri()
+                .expect()
+                .log()
+                .body()
+                .statusCode(200)
+                .time(lessThan(1500L))
+                .when()
+                .get("/mealplanner/"+ USER_NAME + "/week/2022-04-04/");
+
+    }
 }
