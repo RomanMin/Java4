@@ -18,8 +18,5 @@ public class UserDataTest {
         String username = (String) jo.get("username");
         String spoonacularPassword = (String) jo.get("spoonacularPassword");
         String hash = (String) jo.get("hash");
-
-        System.out.println(username + "\n" + spoonacularPassword  + "\n" +  hash);
-
     }
 }

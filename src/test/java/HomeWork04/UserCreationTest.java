@@ -53,5 +53,4 @@ public class UserCreationTest {
                 .then()
                 .spec(responseSpecification);
     }
-
 }
