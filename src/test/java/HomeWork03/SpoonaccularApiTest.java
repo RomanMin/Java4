@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.Matchers.lessThan;
 
 public class SpoonaccularApiTest {
-    private static final String API_KEY = "4f8be7f04b4d4b2882145a0d65f832ba";
+    private static final String API_KEY = "8776802a60d84a7b8630baf7fe1f3198";
     private static final String BASE_URL = "https://api.spoonacular.com";
     private static final String RECIPE_ID = "68546";
     private static final String USER_NAME = "RomanMinaev3";
@@ -28,8 +28,6 @@ public class SpoonaccularApiTest {
                   .log()
                   .uri()
                   .expect()
-                  .log()
-                  .body()
                   .statusCode(200)
                   .time(lessThan(1500L))
                   .body("results[9].id", Matchers.notNullValue())
@@ -45,8 +43,6 @@ public class SpoonaccularApiTest {
                 .log()
                 .uri()
                 .expect()
-                .log()
-                .body()
                 .statusCode(200)
                 .time(lessThan(1500L))
                 .body("results[1].id", Matchers.notNullValue())
@@ -65,8 +61,6 @@ public class SpoonaccularApiTest {
                 .log()
                 .uri()
                 .expect()
-                .log()
-                .body()
                 .statusCode(200)
                 .time(lessThan(1500L))
                 .body("results[1].id", Matchers.notNullValue())
@@ -81,8 +75,6 @@ public class SpoonaccularApiTest {
                 .log()
                 .uri()
                 .expect()
-                .log()
-                .body()
                 .statusCode(200)
                 .time(lessThan(1500L))
                 .body("results[1].id", Matchers.notNullValue())
@@ -96,8 +88,6 @@ public class SpoonaccularApiTest {
                 .log()
                 .uri()
                 .expect()
-                .log()
-                .body()
                 .statusCode(200)
                 .time(lessThan(1500L))
                 .when()
@@ -111,8 +101,6 @@ public class SpoonaccularApiTest {
                 .log()
                 .uri()
                 .expect()
-                .log()
-                .body()
                 .statusCode(200)
                 .time(lessThan(1500L))
                 .when()
@@ -127,8 +115,6 @@ public class SpoonaccularApiTest {
                 .log()
                 .uri()
                 .expect()
-                .log()
-                .body()
                 .statusCode(200)
                 .time(lessThan(1500L))
                 .body("confidence", Matchers.notNullValue())
@@ -145,8 +131,6 @@ public class SpoonaccularApiTest {
             .log()
             .uri()
             .expect()
-            .log()
-            .body()
             .statusCode(200)
             .time(lessThan(1500L))
             .when()
@@ -160,8 +144,6 @@ public class SpoonaccularApiTest {
                 .log()
                 .all()
                 .expect()
-                .log()
-                .body()
                 .statusCode(200)
                 .time(lessThan(1500L))
                 .when()
@@ -174,29 +156,11 @@ public class SpoonaccularApiTest {
             .log()
             .uri()
             .expect()
-            .log()
-            .body()
             .statusCode(200)
             .time(lessThan(1500L))
             .when()
             .post("/recipes/cuisine");}
-/*
-    @Test
-    void testPostUser() {
-        RestAssured.given()
-                .queryParams("apiKey", API_KEY)
-                .body("{ \"username\":" + USER_NAME + ", }")
-                .log()
-                .uri()
-                .expect()
-                .log()
-                .body()
-                .statusCode(200)
-                .time(lessThan(1500L))
-                .when()
-                .post("/users/connect");
-    }
-*/
+
     @Test
     void testPostWeekPlan() {
         RestAssured.given()
@@ -218,8 +182,6 @@ public class SpoonaccularApiTest {
                 .log()
                 .uri()
                 .expect()
-                .log()
-                .body()
                 .statusCode(200)
                 .time(lessThan(1500L))
                 .when()
@@ -235,8 +197,6 @@ public class SpoonaccularApiTest {
                 .log()
                 .uri()
                 .expect()
-                .log()
-                .body()
                 .statusCode(200)
                 .time(lessThan(1500L))
                 .when()
