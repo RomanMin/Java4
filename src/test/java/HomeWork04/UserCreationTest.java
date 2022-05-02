@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 public class UserCreationTest {
 
-        private static final String API_KEY = "4f8be7f04b4d4b2882145a0d65f832ba";
+        private static final String API_KEY = "8776802a60d84a7b8630baf7fe1f3198";
         private static final String BASE_URL = "https://api.spoonacular.com";
         private static final String USER_NAME = "RomanMinaev";
         ResponseSpecification responseSpecification = null;
@@ -46,8 +46,6 @@ public class UserCreationTest {
         RestAssured.given()
                 .spec(requestSpecification)
                 .expect()
-                .log()
-                .body()
                 .when()
                 .post("/users/connect")
                 .then()
