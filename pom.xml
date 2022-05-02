@@ -27,6 +27,12 @@
                     </goals>
                 </execution>
             </executions>
+            <configuration>
+                <!--Allow moving generated files -->
+                <verbose>true</verbose>
+                <!--Allow overwriting of generated files -->
+                <overwrite>true</overwrite>
+            </configuration>
             <dependencies>
                 <dependency>
                     <groupId>org.mybatis.generator</groupId>
