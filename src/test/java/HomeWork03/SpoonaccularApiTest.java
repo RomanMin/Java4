@@ -183,7 +183,7 @@ public class SpoonaccularApiTest {
                 .uri()
                 .expect()
                 .statusCode(200)
-                .time(lessThan(1500L))
+                .time(lessThan(2000L))
                 .when()
                 .post("/mealplanner/"+ USER_NAME + "/items");
 
@@ -198,7 +198,7 @@ public class SpoonaccularApiTest {
                 .uri()
                 .expect()
                 .statusCode(200)
-                .time(lessThan(1500L))
+                .time(lessThan(2000L))
                 .when()
                 .get("/mealplanner/"+ USER_NAME + "/week/2022-04-04/");
 
