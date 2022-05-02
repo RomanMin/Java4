@@ -27,10 +27,10 @@ public class MiniMarketClient {
       return ResponseUtils.executeCall(responseCall);
         }
     public MiniMarketApiResponse findProductById(
-            String path
+            Long id
 
     ) {
-        Call<MiniMarketApiResponse> responseCall = api.findProductById(path);
+        Call<MiniMarketApiResponse> responseCall = api.findProductById(id);
         return ResponseUtils.executeCall(responseCall);
     }
 

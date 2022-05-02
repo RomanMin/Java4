@@ -13,38 +13,7 @@
         <maven.compiler.target>16</maven.compiler.target>
         <mybatis.plagin.version>1.3.7</mybatis.plagin.version>
     </properties>
-    <build>
-    <plugins>
-        <plugin>
-            <groupId>org.mybatis.generator</groupId>
-            <artifactId>mybatis-generator-maven-plugin</artifactId>
-            <version>1.4.0</version>
-            <executions>
-                <execution>
-                    <id>Generate MyBatis Artifacts</id>
-                    <goals>
-                        <goal>generate</goal>
-                    </goals>
-                </execution>
-            </executions>
-            <configuration>
-                <!--Allow moving generated files -->
-                <verbose>true</verbose>
-                <!--Allow overwriting of generated files -->
-                <overwrite>true</overwrite>
-            </configuration>
-            <dependencies>
-                <dependency>
-                    <groupId>org.mybatis.generator</groupId>
-                    <artifactId>mybatis-generator-core</artifactId>
-                    <version>1.4.0</version>
-                </dependency>
-            </dependencies>
-        </plugin>
-    </plugins>
-
-    </build>
-    <dependencies>
+       <dependencies>
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
