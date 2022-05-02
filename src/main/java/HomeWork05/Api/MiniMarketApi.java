@@ -5,7 +5,7 @@ import retrofit2.Call;
 import retrofit2.http.*;
 
 public interface MiniMarketApi {
-    static final String BASE_URL = "api/v1/products/100";
+    static final String BASE_URL = "api/v1/products/3";
 
    @GET(BASE_URL)
     Call<MiniMarketApiResponse> findAllProducts(
@@ -16,7 +16,7 @@ public interface MiniMarketApi {
     // @PUT(BASE_URL)
     @GET(BASE_URL)
     Call<MiniMarketApiResponse> findProductById(
-            @Query("path") String path
+            @Query("id") Long id
     );
     //@DELETE(BASE_URL)
 
